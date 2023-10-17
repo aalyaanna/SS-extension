@@ -1,0 +1,26 @@
+/**Paghahati-hatiin ko na lang here lahat :> **/
+
+body {
+    font-size: 100%;
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+    color: rgb(53, 52, 52);
+    width: 310px;
+    min-height: 600px;
+    background-color: white;
+}
+
+form {
+    padding: 0 5px 5px 5px;
+}
+
+.option {
+    margin-bottom: 0.5em;
+    padding-top: 0.3em ;
+    padding-bottom: 0.3em;
+}
+  
+.option:focus, .option:hover {
+    background-color: rgb(211, 227, 240);
+    border-radius: 2px;
+}

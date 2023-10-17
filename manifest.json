@@ -1,0 +1,35 @@
+{
+    "manifest_version": 3,
+    "name": "SoundSend",
+    "description": "Add functionalities that will help visually impaired users",
+    "version": "1.0.1",
+    "icons":{
+        "16": "public/assets/SS_icon_sm.png",
+        "24": "public/assets/SS_icon_md.png",
+        "32": "public/assets/SS_icon_lg.png"
+    },
+    "action": {
+        "default_icons":{
+            "16": "public/assets/SS_icon_sm.png",
+            "24": "public/assets/SS_icon_md.png",
+            "32": "public/assets/SS_icon_lg.png"
+        },
+        "default_title": "SoundSend",
+        "default_popup": "popup.html"
+    },
+    "content_scripts":[
+        {
+            "js": [
+                "content.js"
+            ],
+            "matches": [
+                "<all_urls>"
+            ]
+        }
+    ],
+    "permissions": [
+        "storage",
+        "activeTab",
+        "scripting"
+    ]
+}
