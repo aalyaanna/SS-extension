@@ -3,7 +3,6 @@
 Features:
 ## Modes of Screen
 - Default Mode - Working
-- Dark Mode
-- Font Size Changer
+- Font Size Changer - Working
 - Colorblind Option (Deateranomaly, Protanomaly, Tritanomaly) - Working
 - Magnifier
