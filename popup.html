@@ -16,17 +16,23 @@
                     <h1>SoundSend Accessibility Modes</h1>
                 </div>
                 <form>
+                    <!-- Still researching pano to-->
                     <h3>Magnifier</h3>
-                    
+                    <button id="magnify">Magnify</button>
                     <h3>Font Size Changer</h3>
 
-                    <!--Sa color blind Options, kasama na mismo normal and darkmode-->
+                    <!--Still fixing this-->
+                    <label for="range-slider">Adjust Font Size:</label>
+                    <span id="font-size-display">16px</span>
+                    <input type="range" name="range" id="range-slider" min="12" max="25" step="1">
+                    <button id="reset-button">Reset</button>
+                    
+                    <!--Sa color blind Options, kasama na mismo normal/default-->
                     <h3>Colorblind Options</h3>
                     <div id="option-normal" class="option">
                         <input id="radio-1" class="radio-custom" name="radio-group" type="radio" checked />
                         <label for="radio-1" class="radio-custom-label">Default</label>
                     </div>
-                    <!--Still figuring paano yung darkmode-->
                     <div class="option" id="option-deuteranomaly">
                         <input id="radio-2" class="radio-custom" name="radio-group" type="radio" />
                         <label for="radio-2" class="radio-custom-label">Deuteranomaly</label>
@@ -42,5 +48,7 @@
                 </form>
             </div>
         <script src="colorblind_opt.js"></script>
+        <script src="font_size.js"></script>
+        <script src="magnifier.js"></script>
     </body>
 </html>

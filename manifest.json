@@ -19,12 +19,9 @@
     },
     "content_scripts":[
         {
-            "js": [
-                "content.js"
-            ],
-            "matches": [
-                "<all_urls>"
-            ]
+            "js": ["content.js"],
+            "css": ["styles.css"],
+            "matches": ["<all_urls>"]
         }
     ],
     "permissions": [
