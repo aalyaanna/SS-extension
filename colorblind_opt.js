@@ -1,5 +1,4 @@
 //sa colorblind options
-
 window.selectedFilter = null;
 window.onload = function () {
   if (!chrome || !chrome.storage || !chrome.storage.local) return;

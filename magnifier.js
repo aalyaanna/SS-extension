@@ -1,19 +1,9 @@
-document.getElementById('magnifyButton').addEventListener('click', () => {
+document.getElementById("magnify").addEventListener("click", () => {
   chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
-    const tabId = tabs[0].id;
-    
-    // Send a message to the content script to enable the magnifier
+    const activeTab = tabs[0];
     chrome.scripting.executeScript({
-      target: { tabId: tabId },
-      function: enableMagnifier,
+      target: { tabId: activeTab.id },
+      function: addMagnifyingGlass,
     });
   });
 });
-
-function enableMagnifier() {
-  // Send a message to the content script to enable the magnifier
-  chrome.scripting.executeScript({
-    target: { tabId: tabId },
-    function: toggleMagnifier,
-  });
-}

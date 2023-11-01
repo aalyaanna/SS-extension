@@ -5,45 +5,43 @@
     <head>
         <link rel="stylesheet" href="styles.css">
         <link rel="manifest" href="manifest.json">
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
     </head>
 
-    <body>
+    <body class="form-body">
             <!--Sa Accessibility features for extension, TESTING!-->
             <div>
                 <div>
-                    <h1>SoundSend Accessibility Modes</h1>
+                    <h3>SoundSend <span class="custom_title">Accessibility Modes</span><img src="public\assets\SS_icon_sm.png"></h3>
                 </div>
                 <form>
+                    <hr>
                     <!-- Still researching pano to-->
-                    <h3>Magnifier</h3>
-                    <button id="magnify">Magnify</button>
-                    <h3>Font Size Changer</h3>
+                    <h5>Magnifier <button class="custom_btn" id="magnify">Magnify <img src="public\magnifying-glass_10275878.png"></button></h5>
 
-                    <!--Still fixing this-->
-                    <label for="range-slider">Adjust Font Size:</label>
-                    <span id="font-size-display">16px</span>
+                    <hr>
+                    <!--Fixed-->
+                    <h5>Font Size Changer <button class="custom_btn" id="reset-button" style="text-align: right;">Reset</button></h5>
+                    <label class="adjust-label" for="range-slider">Adjust Font Size: <span id="font-size-display"> 16px</span></label>
                     <input type="range" name="range" id="range-slider" min="12" max="25" step="1">
-                    <button id="reset-button">Reset</button>
                     
+                    <hr>
                     <!--Sa color blind Options, kasama na mismo normal/default-->
-                    <h3>Colorblind Options</h3>
+                    <h5>Colorblind Options</h5>
                     <div id="option-normal" class="option">
-                        <input id="radio-1" class="radio-custom" name="radio-group" type="radio" checked />
-                        <label for="radio-1" class="radio-custom-label">Default</label>
+                    <input id="radio-1" class="radio-custom" name="radio-group" type="radio" checked />
+                    <label for="radio-1" class="radio-custom-label">Default</label>
                     </div>
                     <div class="option" id="option-deuteranomaly">
-                        <input id="radio-2" class="radio-custom" name="radio-group" type="radio" />
-                        <label for="radio-2" class="radio-custom-label">Deuteranomaly</label>
+                    <input id="radio-2" class="radio-custom" name="radio-group" type="radio" />
+                    <label for="radio-2" class="radio-custom-label">Deuteranomaly</label>
                     </div>
                     <div class="option" id="option-protanomaly">
-                        <input id="radio-3" class="radio-custom" name="radio-group" type="radio" />
-                        <label for="radio-3" class="radio-custom-label">Protanomaly</label>
+                    <input id="radio-3" class="radio-custom" name="radio-group" type="radio" />
+                    <label for="radio-3" class="radio-custom-label">Protanomaly</label>
                     </div>
                     <div class="option" id="option-tritanomaly">
-                        <input id="radio-4" class="radio-custom" name="radio-group" type="radio" />
-                        <label for="radio-4" class="radio-custom-label">Tritanomaly</label>
+                    <input id="radio-4" class="radio-custom" name="radio-group" type="radio" />
+                    <label for="radio-4" class="radio-custom-label">Tritanomaly</label>
                     </div>
                 </form>
             </div>
