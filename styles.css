@@ -35,6 +35,7 @@ label {
 }
 
 .option {
+    margin-left: 10px;
     margin-bottom: 0.5em;
     padding-top: 0.3em ;
     padding-bottom: 0.3em;
@@ -91,8 +92,8 @@ input[type="range"]:active::-webkit-slider-thumb {
 .radio-custom {
   -webkit-appearance: none;
   appearance: none;
-  width: 10px;
-  height: 10px;
+  width: 15px;
+  height: 15px;
   border: 2px solid #fca311;
   border-radius: 50%;
   cursor: pointer;
@@ -120,7 +121,6 @@ input[type="range"]:active::-webkit-slider-thumb {
   cursor: pointer;
   font-size: 14px; 
   transition: background-color 0.3s;
-  text-align: right !important;
 }
 
 .custom_btn:hover {
