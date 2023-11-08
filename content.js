@@ -23,24 +23,40 @@ chrome.runtime.onMessage.addListener(function (message, sender, sendResponse) {
   }
 });
 
-// content.js
+// content.js sa magnifier
+// let isMagnifierActive = false;
+
+// function toggleMagnifier() {
+//   if (isMagnifierActive) {
+//     document.getElementById('magnifying-glass').remove();
+//     isMagnifierActive = false;
+//   } else {
+//     const magnifyingGlass = document.createElement('div');
+//     magnifyingGlass.id = 'magnifying-glass';
+//     magnifyingGlass.classList.add('magnifying-glass');
+//     document.body.appendChild(magnifyingGlass);
+//     isMagnifierActive = true;
+//   }
+// }
+
+// chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
+//   if (request.toggleMagnifier) {
+//     toggleMagnifier();
+//   }
+// });
+
 let isMagnifierActive = false;
 
 function toggleMagnifier() {
-  if (isMagnifierActive) {
-    document.getElementById('magnifying-glass').remove();
-    isMagnifierActive = false;
-  } else {
-    const magnifyingGlass = document.createElement('div');
-    magnifyingGlass.id = 'magnifying-glass';
-    magnifyingGlass.classList.add('magnifying-glass');
-    document.body.appendChild(magnifyingGlass);
-    isMagnifierActive = true;
-  }
-}
+    const magnifier = document.getElementById("magnifying-glass");
 
-chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
-  if (request.toggleMagnifier) {
-    toggleMagnifier();
-  }
-});
+    if (magnifier) {
+        // If the magnifier element exists, remove it to disable the magnifier
+        magnifier.remove();
+        isMagnifierActive = false;
+    } else {
+        // If the magnifier element doesn't exist, create and append it to enable the magnifier
+        createMagnifier();
+        isMagnifierActive = true;
+    }
+}

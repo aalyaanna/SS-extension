@@ -1,5 +1,6 @@
 var id = 100;
 // Add an event listener to the "Magnifier" button in the popup
+// Add an event listener to the "Magnifier" button in the popup
 document.getElementById("startMagnifier").addEventListener("click", function () {
     // Send a message to the content script to toggle the magnifier
     chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
@@ -10,6 +11,19 @@ document.getElementById("startMagnifier").addEventListener("click", function () 
         });
     });
 });
+
+// Add an event listener to the "Close Magnifier" button in the popup
+document.getElementById("closeMagnifier").addEventListener("click", function () {
+    // Send a message to the content script to toggle off the magnifier
+    chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
+        const activeTab = tabs[0];
+        chrome.scripting.executeScript({
+            target: { tabId: activeTab.id },
+            function: toggleMagnifier,
+        });
+    });
+});
+
 
 // Define the toggleMagnifier function to toggle the magnifying glass
 function toggleMagnifier() {
@@ -27,9 +41,9 @@ function toggleMagnifier() {
 // Create the magnifier element and add it to the page
 function createMagnifier() {
     const SCALE = 1.3; // Magnification
-    const SIZE = 150; // Diameter
-    const LENS_OFFSET_X = SIZE / 10.2;
-    const LENS_OFFSET_Y = SIZE / 10.2;
+    const SIZE = 250; // Diameter
+    const LENS_OFFSET_X = SIZE / 10.5;
+    const LENS_OFFSET_Y = SIZE / 10.5;
 
     // Create the magnifying glass (lens)
     const handle = document.createElement("div");
@@ -40,6 +54,7 @@ function createMagnifier() {
     magnifyingGlass.classList.add("magnifying-glass");
     magnifyingGlass.style.top = LENS_OFFSET_Y + "px";
     magnifyingGlass.style.left = LENS_OFFSET_X + "px";
+    magnifyingGlass.style.zIndex = 9999;
 
     handle.appendChild(magnifyingGlass);
 
@@ -68,14 +83,14 @@ function createMagnifier() {
         handle.style.top = pointerY - SIZE / 1.7 + "px";
         if (magnifyingGlass.children[0]) {
             // Align magnified document
-            // let offsetX = (SIZE * Math.pow(SCALE, 2)) / 2 - pointerX * SCALE;
-            // let offsetY = (SIZE * Math.pow(SCALE, 2)) / 2 - pointerY * SCALE;
-            // magnifyingGlass.children[0].style.left = offsetX + "px";
-            // magnifyingGlass.children[0].style.top = offsetY + "px";
-            let offsetX = SIZE - pointerX - (SIZE / SCALE);
-            let offsetY = SIZE - pointerY - (SIZE / SCALE);
+            let offsetX = (SIZE * Math.pow(SCALE, 2)) / 2 - pointerX * SCALE;
+            let offsetY = (SIZE * Math.pow(SCALE, 2)) / 2 - pointerY * SCALE;
             magnifyingGlass.children[0].style.left = offsetX + "px";
             magnifyingGlass.children[0].style.top = offsetY + "px";
+            // let offsetX = SIZE - pointerX - (SIZE / SCALE);
+            // let offsetY = SIZE - pointerY - (SIZE / SCALE);
+            // magnifyingGlass.children[0].style.left = offsetX + "px";
+            // magnifyingGlass.children[0].style.top = offsetY + "px";
         }
     };
 
