@@ -1,8 +1,5 @@
 var id = 100;
-// Add an event listener to the "Magnifier" button in the popup
-// Add an event listener to the "Magnifier" button in the popup
 document.getElementById("startMagnifier").addEventListener("click", function () {
-    // Send a message to the content script to toggle the magnifier
     chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
         const activeTab = tabs[0];
         chrome.scripting.executeScript({
@@ -14,7 +11,6 @@ document.getElementById("startMagnifier").addEventListener("click", function () 
 
 // Add an event listener to the "Close Magnifier" button in the popup
 document.getElementById("closeMagnifier").addEventListener("click", function () {
-    // Send a message to the content script to toggle off the magnifier
     chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
         const activeTab = tabs[0];
         chrome.scripting.executeScript({
@@ -25,20 +21,17 @@ document.getElementById("closeMagnifier").addEventListener("click", function () 
 });
 
 
-// Define the toggleMagnifier function to toggle the magnifying glass
+// Define the toggleMagnifier function to toggle the magnifying glass   
 function toggleMagnifier() {
     const magnifier = document.getElementById("magnifying-glass");
 
     if (magnifier) {
-        // If the magnifier element exists, remove it to disable the magnifier
         magnifier.remove();
     } else {
-        // If the magnifier element doesn't exist, create and append it to enable the magnifier
         createMagnifier();
     }
 }
 
-// Create the magnifier element and add it to the page
 function createMagnifier() {
     const SCALE = 1.3; // Magnification
     const SIZE = 250; // Diameter
@@ -87,10 +80,6 @@ function createMagnifier() {
             let offsetY = (SIZE * Math.pow(SCALE, 2)) / 2 - pointerY * SCALE;
             magnifyingGlass.children[0].style.left = offsetX + "px";
             magnifyingGlass.children[0].style.top = offsetY + "px";
-            // let offsetX = SIZE - pointerX - (SIZE / SCALE);
-            // let offsetY = SIZE - pointerY - (SIZE / SCALE);
-            // magnifyingGlass.children[0].style.left = offsetX + "px";
-            // magnifyingGlass.children[0].style.top = offsetY + "px";
         }
     };
 

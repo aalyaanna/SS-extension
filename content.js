@@ -24,27 +24,6 @@ chrome.runtime.onMessage.addListener(function (message, sender, sendResponse) {
 });
 
 // content.js sa magnifier
-// let isMagnifierActive = false;
-
-// function toggleMagnifier() {
-//   if (isMagnifierActive) {
-//     document.getElementById('magnifying-glass').remove();
-//     isMagnifierActive = false;
-//   } else {
-//     const magnifyingGlass = document.createElement('div');
-//     magnifyingGlass.id = 'magnifying-glass';
-//     magnifyingGlass.classList.add('magnifying-glass');
-//     document.body.appendChild(magnifyingGlass);
-//     isMagnifierActive = true;
-//   }
-// }
-
-// chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
-//   if (request.toggleMagnifier) {
-//     toggleMagnifier();
-//   }
-// });
-
 let isMagnifierActive = false;
 
 function toggleMagnifier() {
